@@ -25,7 +25,7 @@ fn action(c: &Context) {
 }
 
 fn calculate(expr: &str) -> Result<f64, String> {
-    if expr.contains("=") {
+    if expr.contains('=') {
         todo!("equation solver");
         // let parts: Vec<_> = parsed.split("=").collect();
 
@@ -36,7 +36,7 @@ fn calculate(expr: &str) -> Result<f64, String> {
         //     Err(_) => Err(String::from("Error")),
         // }
     } else {
-        let result = exmex::eval_str::<f64>(&expr);
+        let result = exmex::eval_str::<f64>(expr);
 
         match result {
             Ok(result) => Ok(result),
