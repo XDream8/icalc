@@ -1,0 +1,23 @@
+[package]
+name = "icalc"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+seahorse = "2.1"
+exmex = "0.17.5"
+
+[profile.release]
+lto = "thin"
+panic = 'abort'
+
+[profile.optimized]
+inherits = "release"
+lto = "fat"
+codegen-units = 1
+strip = true
+opt-level = 3
+
+[profile.optimized_size]
+inherits = "optimized"
+opt-level = "z"
